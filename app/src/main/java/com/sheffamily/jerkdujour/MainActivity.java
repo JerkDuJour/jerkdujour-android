@@ -18,10 +18,16 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         // Set up the Web View
+        initializeWebView("https://jerkdujour.herokuapp.com/");
+    }
+
+    private void initializeWebView(String url) {
         mWebView = (WebView) findViewById(R.id.webView);
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        mWebView.loadUrl("https://jerkdujour.herokuapp.com/");
+        if(!url.isEmpty()) {
+            mWebView.loadUrl(url);
+        }
     }
 
 
